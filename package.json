@@ -1,9 +1,12 @@
 {
-  "name": "jquery.group",
+  "name": "jquery.group.improved",
   "version": "0.0.1",
   "repository" : {
     "type": "git",
     "url": "https://github.com/teijo/jquery-group.git"
+  },
+  "scripts": {
+    "start": "npm install && grunt watch"
   },
   "dependencies": {
     "grunt-cli": ">= 0.1.9",

@@ -4,15 +4,13 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON("package.json")
     watch:
       scripts:
-        files: ["src/jquery.group.sass", "src/jquery.group.coffee"]
+        files: ["src/<%= pkg.name %>.sass", "src/<%= pkg.name %>.coffee"]
         tasks: ["default"]
 
-    compass:
+    sass:
       dist:
-        options:
-          sassDir: "src"
-          cssDir: "dist"
-          raw: "preferred_syntax = :sass\n"
+        files:
+          "dist/<%= pkg.name %>.css": "src/<%= pkg.name %>.sass"
 
     jshint:
       options:
@@ -31,7 +29,7 @@ module.exports = (grunt) ->
     coffee:
       compile:
         files:
-          "dist/jquery.group.js": "src/jquery.group.coffee"
+          "dist/<%= pkg.name %>.js": "src/<%= pkg.name %>.coffee"
 
     cssmin:
       dist:
@@ -53,6 +51,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-contrib-jshint"
-  grunt.loadNpmTasks "grunt-contrib-compass"
+  grunt.loadNpmTasks "grunt-sass"
   grunt.loadNpmTasks "grunt-css"
-  grunt.registerTask "default", ["compass", "coffee", "uglify", "cssmin"]
+  grunt.registerTask "default", ["sass", "coffee", "uglify", "cssmin"]
