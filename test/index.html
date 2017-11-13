@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="jquery.group.improved.css" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="Bacon-1ab32ffb.min.js"></script>
+<script type="text/javascript" src="lodash-2.2.1.min.js"></script>
+<script type="text/javascript" src="handlebars.1.0.0.js"></script>
+<script type="text/javascript" src="jquery.group.improved.js"></script>
+</head>
+<body>
+<div id="empty"></div>
+<pre></pre>
+<script type="text/javascript">
+data = {
+    "teams": [
+    {
+        "id": 10,
+        "name": "team1",
+        "format": "",
+        "data": {}
+    },
+    {
+        "id": 20,
+        "name": "team2",
+        "format": "",
+        "data": {}
+    },
+    {
+        "id": 30,
+        "name": "team3",
+        "format": "",
+        "data": {}
+    }
+    ],
+        "matches": [
+        {
+            "a": {
+                "team": 20,
+                "score": 5
+            },
+            "b": {
+                "team": 30,
+                "score": 6
+            },
+            "round": 0,
+            "id": 10,
+            "time": 0
+        },
+        {
+            "a": {
+                "team": 10,
+                "score": 1
+            },
+            "b": {
+                "team": 20,
+                "score": 2
+            },
+            "round": 0,
+            "id": 20,
+            "time": 1
+        },
+        {
+            "a": {
+                "team": 10,
+                "score": 3
+            },
+            "b": {
+                "team": 30,
+                "score": 4
+            },
+            "round": 0,
+            "id": 30,
+            "time": 2
+        }
+    ]
+};
+$('div#empty').group({
+    init: data,
+    savex: function(stat) {
+        $('pre').text(JSON.stringify(stat, undefined, 2))
+    }
+});
+</script>
+</body>
+</html>
